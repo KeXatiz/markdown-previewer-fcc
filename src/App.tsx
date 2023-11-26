@@ -55,13 +55,36 @@ function App() {
   return (
     <>
       <div>
-        <h1>Markdown Previewer</h1>
-        <div className="boxes-container">
-          <textarea name="editor" id="editor" value={markDownText} onChange={(e) => { setMarkDownText(e.target.value) }}></textarea>
+        <h1 className='text-center mb-4'>Markdown Previewer</h1>
+        <div className="container">
+          <div className='row'>
+            <div className='col'>
+              <div className="card mb-4">
+                <div className="card-header">
+                  Text Editor (You may change the text below)
+                </div> 
+                <div>
+                  <textarea className="form-control" rows={30} name="editor" id="editor" value={markDownText} onChange={(e) => { setMarkDownText(e.target.value) }}></textarea>
+                </div>         
+                
+              </div>
+            </div>
+            
+            <div className='col'>
+              <div className='card mb-4'>
+                <div className="card-header">
+                    Previewer
+                  </div> 
+                <div className='px-2' id="preview">
+                  <ReactMarkdown>{markDownText}</ReactMarkdown>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
         </div>
-        <div id="preview">
-          <ReactMarkdown>{markDownText}</ReactMarkdown>
-        </div>
+        
       </div>
     </>
   )
